@@ -3,11 +3,11 @@ let { banco, contas, saques, depositos, transferencias } = require('../bancodeda
 const validarNumContaeValor = (req, res, next) => {
     const { numero_conta, valor } = req.body;
 
-    if (!numero_conta) {
+    if (!numero_conta || numero_conta === ' ') {
         return res.status(400).json({ mensagem: 'O numero da conta é obrigatório!' });
     }
 
-    if (!valor) {
+    if (!valor|| valor === ' ') {
         return res.status(400).json({ mensagem: 'O valor de depósito é obrigatório!' });
     }
 
@@ -52,15 +52,15 @@ const verificarSenha = (req, res, next) => {
 const validacoesTransferencia = (req, res, next) => {
     const { numero_conta_origem, numero_conta_destino, valor, senha } = req.body;
 
-    if (!numero_conta_origem) {
+    if (!numero_conta_origem || numero_conta_origem === ' ') {
         return res.status(400).json({ mensagem: 'O numero da conta de origem é obrigatório!' });
     }
 
-    if (!numero_conta_destino) {
+    if (!numero_conta_destino || numero_conta_destino === ' ') {
         return res.status(400).json({ mensagem: 'O numero da conta de destino é obrigatório!' });
     }
 
-    if (!valor) {
+    if (!valor || valor === ' ')  {
         return res.status(400).json({ mensagem: 'O valor de depósito é obrigatório!' });
     }
     if (!senha) {
