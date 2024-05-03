@@ -17,27 +17,27 @@ const validaSenha = (req, res, next) => {
 const validarDados = (req, res, next) => {
     const { nome, cpf, data_nascimento, telefone, email, senha } = req.body;
 
-    if (!nome) {
+    if (!nome || nome === ' ') {
         return res.status(400).json({ mensagem: 'O nome deve ser informado' });
     }
 
-    if (!cpf) {
+    if (!cpf|| cpf === ' ') {
         return res.status(400).json({ mensagem: 'O CPF deve ser informado' });
     }
 
-    if (!data_nascimento) {
+    if (!data_nascimento || data_nascimento === ' ') {
         return res.status(400).json({ mensagem: 'A data de nascimento deve ser informado' });
     }
 
-    if (!telefone) {
+    if (!telefone || telefone === ' ') {
         return res.status(400).json({ mensagem: 'O telefone deve ser informado' });
     }
 
-    if (!email) {
+    if (!email || email === ' ') {
         return res.status(400).json({ mensagem: 'O e-mail deve ser informado' });
     }
 
-    if (!senha) {
+    if (!senha || senha === ' ' ) {
         return res.status(400).json({ mensagem: 'A senha deve ser informado' });
     }
     next();
@@ -85,7 +85,7 @@ const validarNumeroConta = (req, res, next) => {
 const verificarNumcontaeSenhaExtrato = (req, res, next) => {
     const { numero_conta, senha } = req.query;
 
-    if (!numero_conta) {
+    if (!numero_conta || numero_conta === ' ') {
         return res.status(400).json({ mensagem: 'O numero da conta deve ser informado' });
     }
 
