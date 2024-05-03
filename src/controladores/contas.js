@@ -1,5 +1,5 @@
 const bancoDeDados = require('../bancodedados');
-let numeroContaCadastrada = 3;
+let numeroContaCadastrada = 1;
 
 
 const listarContas = (req, res) => {
